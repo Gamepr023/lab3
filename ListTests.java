@@ -38,16 +38,30 @@ public class ListTests {
     @Test
     public void testMerge() {
         List<String> list1 = new ArrayList<>();
-        list1.add("a");
-        list1.add("c");
-        list1.add("d");
+        list1.add("a"); list1.add("c"); list1.add("d");
+
         List<String> list2 = new ArrayList<>();
-        list2.add("a");
-        list2.add("b");
-        list2.add("d");
-        list2.add("e");
-        list2.add("f");
+        list2.add("a"); list2.add("b"); list2.add("d"); list2.add("e"); list2.add("f");
+
         List<String> output = new ArrayList<>();
+        output.add("a"); output.add("a"); output.add("b"); output.add("c"); 
+        output.add("d"); output.add("d"); output.add("e"); output.add("f");
+ 
+        assertEquals(output, ListExamples.merge(list1,list2));
+    }
+
+    @Test
+    public void testMerge2() {
+        List<String> list1 = new ArrayList<>();
+        list1.add("a"); list1.add("c"); list1.add("d"); list1.add("f");
+
+        List<String> list2 = new ArrayList<>();
+        list2.add("a"); list2.add("b"); list2.add("e");
+
+        List<String> output = new ArrayList<>();
+        output.add("a"); output.add("a"); output.add("b"); output.add("c"); 
+        output.add("d"); output.add("e"); output.add("f");
+        
         assertEquals(output, ListExamples.merge(list1,list2));
     }
 }
